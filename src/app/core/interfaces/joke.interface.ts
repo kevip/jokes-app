@@ -1,6 +1,6 @@
 export interface IJoke {
   id: number;
   punchline: string;
-  setup: string[];
+  setup: string;
   type: string;
 }

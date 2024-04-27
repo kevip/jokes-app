@@ -2,14 +2,12 @@
   <mat-card-content>
     <div class="joke-card__container">
       <div class="joke-card__top-right">
-        <button mat-icon-button aria-label="Favorite">
-          <mat-icon>star_border</mat-icon>
+        <button mat-icon-button aria-label="Like" (click)="toggleLike()">
+          <mat-icon>{{ joke.liked ? 'star' : 'star_border'}}</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Like">
-          <mat-icon>favorite_border</mat-icon>
+        <button mat-icon-button aria-label="Favorite" (click)="toggleStar()">
+          <mat-icon>{{ joke.favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
         </button>
-        <!-- <mat-icon class="pointer" aria-hidden="false" aria-label="Favorite" fontIcon="star_border"></mat-icon>
-        <mat-icon aria-hidden="false" aria-label="Like" fontIcon="favorite_border"></mat-icon> -->
       </div>
       <div class="joke-card__content">
         <strong class="joke-card__setup">{{ joke.setup}}</strong>
