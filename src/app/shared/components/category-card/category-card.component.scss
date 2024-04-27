@@ -1,0 +1,11 @@
+.rj-category {
+  background: rgb(255, 255, 255, 0.3);
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.3s;
+  &:hover {
+    background: rgb(255, 255, 255, 0.5);
+  }
+}

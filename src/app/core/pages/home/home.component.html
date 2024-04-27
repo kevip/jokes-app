@@ -1,0 +1,14 @@
+<rj-layout>
+  <div class="home">
+    <div class="home__title-container">
+      <h1 class="home__title">Select your category</h1>
+    </div>
+    <section class="home__categories-container">
+      @for(category of categories(); track category) {
+        <a class="home__category" [routerLink]="['category', category.name]">
+          <rj-category-card [category]="category"></rj-category-card>
+        </a>
+      }
+    </section>
+  </div>
+</rj-layout>

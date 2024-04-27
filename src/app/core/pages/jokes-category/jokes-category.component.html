@@ -1,0 +1,12 @@
+<rj-layout>
+  <div class="joke-category">
+    <div class="joke-category__title-container">
+      <h1 class="joke-category__title">{{ category}}</h1>
+    </div>
+    <div class="joke-category__jokes-container">
+      @for(joke of jokes(); track joke) {
+      <rj-joke-card class="joke-category__joke-card" [joke]="joke"/>
+      }
+    </div>
+  </div>
+</rj-layout>
