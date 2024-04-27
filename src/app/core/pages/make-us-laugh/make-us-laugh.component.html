@@ -1,0 +1,28 @@
+<rj-layout>
+  <div class="joke-form">
+    <div class="joke-form__title-container">
+      <h1 class="joke-form__title">Let's Hear Your Best Joke! 😂</h1>
+    </div>
+    <form class="joke-form" (submit)="submit()" [formGroup]="form">
+      <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Setup</mat-label>
+        <input matInput formControlName="setup">
+        @if (setup.invalid) {
+          <mat-error>Don't miss the setup!</mat-error>
+        }
+      </mat-form-field>
+      </p>
+      <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Punchline</mat-label>
+        <textarea matInput formControlName="punchline"></textarea>
+        @if (punchline.invalid) {
+          <mat-error>Don't miss the punchline!</mat-error>
+        }
+      </mat-form-field>
+      </p>
+      <button mat-flat-button color="accent">Save!</button>
+    </form>
+  </div>
+</rj-layout>

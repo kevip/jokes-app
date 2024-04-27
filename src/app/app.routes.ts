@@ -6,5 +6,8 @@ export const routes: Routes = [
   },
   {
     path: 'category', loadChildren: () => import('./core/pages/jokes-category/jokes-category.routes'),
+  },
+  {
+    path: 'make-us-laugh', loadChildren: () => import('./core/pages/make-us-laugh/make-us-laugh.routes'),
   }
 ];
