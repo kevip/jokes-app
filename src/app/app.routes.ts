@@ -9,5 +9,8 @@ export const routes: Routes = [
   },
   {
     path: 'make-us-laugh', loadChildren: () => import('./core/pages/make-us-laugh/make-us-laugh.routes'),
+  },
+  {
+    path: 'my-jokes', loadChildren: () => import('./core/pages/my-jokes/my-jokes.routes'),
   }
 ];

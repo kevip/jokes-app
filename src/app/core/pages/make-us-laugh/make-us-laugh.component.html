@@ -1,8 +1,8 @@
-<div class="joke-form">
-  <div class="joke-form__title-container">
-    <h1 class="joke-form__title">Let's Hear Your Best Joke! 😂</h1>
+<div class="make-us-laugh">
+  <div class="make-us-laugh__title-container">
+    <h1 class="make-us-laugh__title rj-title">Let's Hear Your Best Joke! 😂</h1>
   </div>
-  <form class="joke-form" (submit)="submit()" [formGroup]="presenter.form">
+  <form class="make-us-laugh__form" (submit)="submit()" [formGroup]="presenter.form">
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Joke type</mat-label>
@@ -34,6 +34,9 @@
       }
     </mat-form-field>
     </p>
-    <button mat-flat-button color="accent">Save!</button>
+    <div class="make-us-laugh__buttons">
+      <button mat-flat-button color="primary">Cancel</button>
+      <button mat-flat-button color="accent">Save!</button>
+    </div>
   </form>
 </div>

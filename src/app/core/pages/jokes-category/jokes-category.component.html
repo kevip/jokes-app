@@ -1,10 +1,23 @@
 <div class="joke-category">
   <div class="joke-category__title-container">
-    <h1 class="joke-category__title">{{ category}}</h1>
+    <h1 class="joke-category__title rj-title">Category > {{ category}}</h1>
   </div>
-  <div class="joke-category__jokes-container">
+  <div class="joke-category__view-options">
+    <button mat-mini-fab color="accent" aria-label="view type" class="joke-category__view-type" (click)="toggleView()">
+      <mat-icon class="joke-category__view-type">
+        {{ viewType() === viewTypes.CARDS ? 'view_headline' : 'view_module'}}
+      </mat-icon>
+    </button>
+  </div>
+  @if(viewType() === viewTypes.CARDS) {
+  <div class="joke-category__cards-view">
     @for(joke of jokes(); track joke) {
     <rj-joke-card class="joke-category__joke-card" [joke]="joke"/>
     }
   </div>
+  } @else {
+    <div class="joke-category__grid-view">
+      <rj-jokes-table [jokes]="jokes()"></rj-jokes-table>
+    </div>
+  }
 </div>

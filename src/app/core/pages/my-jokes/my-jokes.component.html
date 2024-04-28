@@ -1,0 +1,20 @@
+<div class="my-jokes">
+  @if(jokes().length > 0) {
+  <div class="my-jokes__wrapper">
+    <div class="my-jokes__title-container">
+      <h1 class="my-jokes__title rj-title">My Jokes</h1>
+    </div>
+    <div class="my-jokes__jokes-container">
+      @for(joke of jokes(); track joke) {
+        <rj-joke-card class="my-jokes__joke-card" [joke]="joke"/>
+      }
+    </div>
+  </div>
+  } @else {
+    <div class="my-jokes__empty-vault">
+      <p>
+        No jokes yet? Let's change that! <a class="my-jokes__make-us-laugh-link" [routerLink]="['/make-us-laugh']">Make us laugh</a> with a quick quip. 🎤😆
+      </p>
+    </div>
+  }
+</div>

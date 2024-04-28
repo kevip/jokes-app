@@ -10,7 +10,7 @@ mat-toolbar.toolbar {
     font-size: 1.1rem;
     position: relative;
     &:hover::after {
-      background: #fff;
+      background: rgb(23, 204, 189);
       bottom: 0px;
       content: "";
       height: 0.2em;

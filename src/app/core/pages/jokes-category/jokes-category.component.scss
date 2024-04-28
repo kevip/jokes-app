@@ -1,17 +1,20 @@
 .joke-category {
-  &__title {
-    font-family: "Chewy", system-ui;
-    color: #fff;
-    text-transform: capitalize;
-    font-size: 3.5rem;
-  }
   &__joke-card {
     margin: 3em 2em;
     max-width: 450px;
     width: 100%;
   }
-  &__jokes-container {
+  &__cards-view {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -2em;
+  }
+  &__view-options {
+    margin: 3.5em 0 1em 0;
+    display: flex;
+    color: #fff;
+  }
+  &__view-type {
+    cursor: pointer;
   }
 }
