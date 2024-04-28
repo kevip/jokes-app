@@ -4,8 +4,8 @@
   position: relative;
   &__score {
     position: absolute;
-    top: 0.2em;
-    left: 0.2em;
+    bottom: 0.2em;
+    right: 0.2em;
     transform: scale(0.75);
   }
   &__top-right {
