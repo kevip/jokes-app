@@ -1,27 +1,53 @@
-# Randomjokes
+# JokesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+## Description
+JokesApp is a web application that show you random jokes by category and allows you to share your own joke!
 
-## Development server
+![Home page](/src/assets/home-screenshot.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies
+- Angular v17
+- Angular material
 
-## Code scaffolding
+## Prerequisites
+- Node.js v18 or above.
+- Angular CLI 17.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Install
+In order to run this project in a local environment, execute the following commands:
 
-## Build
+```bash
+git clone https://github.com/kevip/jokes-app.git
+cd jokes-app/frontend
+npm install
+npm run start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technical Guidelines
 
-## Running unit tests
+### Unit tests
+Unit tests should be written with the AAA pattern(Arrange, Act, Assert).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Each test is unique and independent and only one "expect" per case should be written.
 
-## Running end-to-end tests
+The structure of unit tests should have the following schema:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```js
+describe('#<test case>', () => {
+    it('should <unit test description>' () => {
+      // Arrange
+      ...
+      // Act
+      ...
+      // Assert
+      ...
+    });
+});
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Commits
+Commits should have the following structure:
+```bash
+git commit -m "<type>: <description>"
+```
+Reference [here](https://www.conventionalcommits.org/en/v1.0.0/)
