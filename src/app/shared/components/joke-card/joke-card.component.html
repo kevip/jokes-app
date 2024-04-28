@@ -2,10 +2,10 @@
   <mat-card-content>
     <div class="joke-card__container">
       <div class="joke-card__top-right">
-        <button mat-icon-button aria-label="Like" (click)="toggleLike()">
+        <button mat-icon-button aria-label="Like" (click)="togglePreferred(storageKeys.LIKED_JOKES)">
           <mat-icon>{{ joke.liked ? 'star' : 'star_border'}}</mat-icon>
         </button>
-        <button mat-icon-button aria-label="Favorite" (click)="toggleStar()">
+        <button mat-icon-button aria-label="Favorite" (click)="togglePreferred(storageKeys.FAVORITE_JOKES)">
           <mat-icon>{{ joke.favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
         </button>
       </div>

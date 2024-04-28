@@ -7,8 +7,8 @@ export class JokeModel {
   punchline: string;
   setup: string;
   type: string;
-  liked: boolean;
-  favorite: boolean;
+  liked?: boolean;
+  favorite?: boolean;
 
   constructor(response: IJoke) {
     this.id = response.id

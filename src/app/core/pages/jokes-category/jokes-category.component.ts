@@ -35,6 +35,8 @@ export default class JokesCategoryComponent implements OnInit {
   }
 
   toggleView(): void {
-    this.viewType.set(this.viewType() === EViewTypes.CARDS ? EViewTypes.GRID : EViewTypes.CARDS)
+    this.viewType.set(
+      this.viewType() === EViewTypes.CARDS ? EViewTypes.GRID : EViewTypes.CARDS
+    );
   }
 }

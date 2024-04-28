@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { JokeModel } from '../../../core/http/jokes.model';
-import { TSavedJoke } from '../../../core/types/liked-jokes.type';
 import { EStorageKeys } from '../../../core/enums/storage-keys.enum';
+import { JokesService } from '../../../core/services/jokes.service';
 
 @Component({
   selector: 'rj-joke-card',
@@ -14,27 +14,33 @@ import { EStorageKeys } from '../../../core/enums/storage-keys.enum';
   styleUrl: './joke-card.component.scss'
 })
 export class JokeCardComponent {
+  jokeService = inject(JokesService);
+
+  storageKeys = EStorageKeys;
 
   @Input() joke!: JokeModel;
 
-  toggleLike(): void {
-    const likedJokes = <string>window.localStorage.getItem(EStorageKeys.LIKED_JOKES);
-    const jokesList = likedJokes ? <TSavedJoke>JSON.parse(likedJokes) : {};
+  togglePreferred(key: EStorageKeys): void {
+    const jokesList = this.jokeService.getPreferred(key);
+    const preferredProperty = this.getPreferredPropertyByKey(key);
 
-    this.joke.liked = !jokesList[this.joke.id];
+    this.joke[preferredProperty] = !jokesList[this.joke.id] as never;
+
     jokesList[this.joke.id] = !jokesList[this.joke.id] ? this.joke : undefined;
 
-    window.localStorage.setItem(EStorageKeys.LIKED_JOKES, JSON.stringify(jokesList));
+    this.jokeService.savePreferred(key, jokesList);
   }
+  /**
+   *
+   * @description returns 'favorite' or 'liked' property from JokeModel depending on the parameter 'key'
+   * @returns
+   */
+  getPreferredPropertyByKey(key: EStorageKeys): keyof JokeModel {
+    const preferredPropertiesMap = {
+      [EStorageKeys.FAVORITE_JOKES]: 'favorite',
+      [EStorageKeys.LIKED_JOKES]: 'liked',
+    } as { [key in EStorageKeys]: keyof JokeModel };
 
-  toggleStar(): void {
-    const favoriteJokes = <string>window.localStorage.getItem(EStorageKeys.FAVORITE_JOKES);
-    const jokesList = favoriteJokes ? <TSavedJoke>JSON.parse(favoriteJokes) : {};
-
-    this.joke.favorite = !jokesList[this.joke.id];
-    jokesList[this.joke.id] = !jokesList[this.joke.id] ? this.joke : undefined;
-
-    window.localStorage.setItem(EStorageKeys.FAVORITE_JOKES, JSON.stringify(jokesList));
+    return preferredPropertiesMap[key];
   }
-
 }

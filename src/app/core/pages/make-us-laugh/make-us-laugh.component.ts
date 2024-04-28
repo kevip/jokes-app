@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { JokeModel } from '../../http/jokes.model';
 import { EStorageKeys } from '../../enums/storage-keys.enum';
 import { MakeUsLaughPresenter } from './make-us-laugh.presenter';
+import { JokesService } from '../../services/jokes.service';
 
 @Component({
   selector: 'rj-make-us-laugh',
@@ -29,6 +30,8 @@ export default class MakeUsLaughComponent {
 
   presenter = inject(MakeUsLaughPresenter);
 
+  service = inject(JokesService);
+
   submit(): void {
     this.presenter.form.markAllAsTouched();
     if (this.presenter.form.valid) {
@@ -41,11 +44,7 @@ export default class MakeUsLaughComponent {
         favorite: false,
       };
 
-      const jokes = window.localStorage.getItem(EStorageKeys.MY_JOKES);
-      const jokesList = jokes ? <JokeModel[]>JSON.parse(jokes) : [];
-
-      jokesList.push(joke);
-      window.localStorage.setItem(EStorageKeys.MY_JOKES, JSON.stringify(jokesList))
+      this.service.saveJoke(joke);
 
       this.router.navigate(['/']);
     }

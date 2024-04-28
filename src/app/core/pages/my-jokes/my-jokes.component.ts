@@ -1,8 +1,9 @@
-import { Component, OnInit, WritableSignal, signal } from '@angular/core';
+import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EStorageKeys } from '../../enums/storage-keys.enum';
 import { JokeModel } from '../../http/jokes.model';
 import { JokeCardComponent } from '../../../shared/components/joke-card/joke-card.component';
+import { JokesService } from '../../services/jokes.service';
 
 @Component({
   selector: 'rj-my-jokes',
@@ -14,10 +15,10 @@ import { JokeCardComponent } from '../../../shared/components/joke-card/joke-car
 export default class MyJokesComponent implements OnInit {
   jokes: WritableSignal<JokeModel[]> = signal([]);
 
-  ngOnInit(): void {
-    const jokes = <string>window.localStorage.getItem(EStorageKeys.MY_JOKES);
-    const jokeList = jokes ? <JokeModel[]>JSON.parse(jokes) : [];
+  service = inject(JokesService);
 
-    this.jokes.set(jokeList);
+  ngOnInit(): void {
+    const jokes = this.service.getUserJokes();
+    this.jokes.set(jokes);
   }
 }
