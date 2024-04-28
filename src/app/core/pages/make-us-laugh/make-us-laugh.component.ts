@@ -4,7 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { JokeModel } from '../../http/jokes.model';
 import { EStorageKeys } from '../../enums/storage-keys.enum';
 import { MakeUsLaughPresenter } from './make-us-laugh.presenter';
@@ -19,6 +19,7 @@ import { JokesService } from '../../services/jokes.service';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   providers: [MakeUsLaughPresenter],
   templateUrl: './make-us-laugh.component.html',
