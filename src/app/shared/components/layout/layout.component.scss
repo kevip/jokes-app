@@ -1,9 +1,38 @@
 .randomjokes-layout {
-  padding: 6.2em 11.4em 0 11.4em;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 52px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  &__container {
+    padding: 6.2em 11.4em 0 11.4em;
+  }
 }
+.app-drawer-container {
+  background: transparent;
+  flex: 1;
+  & mat-sidenav {
+    margin-top: -4px;
+  }
+}
+
+.list-divider {
+  flex-grow: 1;
+}
+
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 
 @media screen and (max-width: 750px) {
   .randomjokes-layout {
-    padding: 2.2em 6.4em 0 2.4em;
+    &__container {
+      padding: 2.2em 6.4em 0 2.4em;
+    }
   }
 }

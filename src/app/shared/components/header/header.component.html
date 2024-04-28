@@ -1,1 +1,12 @@
-<p>header works!</p>
+<mat-toolbar class="toolbar">
+  <div class="menu-nav-container--desktop">
+    @for(item of menuItems; track item) {
+      <button class="menu-button" mat-button [routerLink]="[item.path]">{{item.name}}</button>
+    }
+  </div>
+  <div class="menu-nav-container--mobile">
+    <button class="menu-button" mat-icon-button color="primary" aria-label="" (click)="sideNavService.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

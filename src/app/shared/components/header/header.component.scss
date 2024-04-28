@@ -1,0 +1,37 @@
+mat-toolbar.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: transparent;
+  button.menu-button {
+    color: #fff;
+    font-size: 1.1rem;
+    position: relative;
+    &:hover::after {
+      background: #fff;
+      bottom: 0px;
+      content: "";
+      height: 0.2em;
+      border-radius: 1em;
+      position: absolute;
+      width: 70%;
+    }
+  }
+}
+.menu-nav-container {
+  &--desktop {
+    display: none;
+  }
+}
+@media screen and (min-width: 720px) {
+  .menu-nav-container {
+    &--desktop {
+      display: block;
+    }
+    &--mobile {
+      display: none;
+    }
+  }
+}
