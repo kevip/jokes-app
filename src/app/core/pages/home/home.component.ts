@@ -2,9 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, Signal, signal } from '@angular/core
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { LayoutComponent } from '../../../shared/components/layout/layout.component';
 import { TCategory } from '../../types/category';
 import { CategoryCardComponent } from '../../../shared/components/category-card/category-card.component';
+import { JOKE_CATEGORIES } from '../../config/joke-categories';
 
 @Component({
   selector: 'rj-home',
@@ -12,7 +12,6 @@ import { CategoryCardComponent } from '../../../shared/components/category-card/
   imports: [
     MatButtonModule,
     MatCardModule,
-    LayoutComponent,
     CategoryCardComponent,
     RouterModule],
   templateUrl: './home.component.html',
@@ -21,10 +20,5 @@ import { CategoryCardComponent } from '../../../shared/components/category-card/
 })
 export default class HomeComponent {
 
-  readonly categories: Signal<TCategory[]> = signal([
-    { name: 'programming' },
-    { name: 'general' },
-    { name: 'knock-knock' },
-    { name: 'dad' },
-  ]);
+  readonly categories: Signal<TCategory[]> = signal(JOKE_CATEGORIES);
 }

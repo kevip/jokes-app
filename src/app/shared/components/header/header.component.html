@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
   <div class="menu-nav-container--desktop">
-    @for(item of menuItems; track item) {
+    @for(item of menuItems(); track item) {
       <button class="menu-button" mat-button [routerLink]="[item.path]">{{item.name}}</button>
     }
   </div>

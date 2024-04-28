@@ -1,14 +1,13 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, WritableSignal, inject, signal } from '@angular/core';
-import { JokesHttp } from '../../http/jokes.http';
-import { LayoutComponent } from '../../../shared/components/layout/layout.component';
-import { JokeCardComponent } from '../../../shared/components/joke-card/joke-card.component';
 import { take } from 'rxjs';
+import { JokesHttp } from '../../http/jokes.http';
+import { JokeCardComponent } from '../../../shared/components/joke-card/joke-card.component';
 import { JokeModel } from '../../http/jokes.model';
 
 @Component({
   selector: 'rj-jokes-category',
   standalone: true,
-  imports: [LayoutComponent, JokeCardComponent],
+  imports: [JokeCardComponent],
   providers: [JokesHttp],
   templateUrl: './jokes-category.component.html',
   styleUrl: './jokes-category.component.scss',

@@ -1,17 +1,15 @@
-<rj-layout>
-  <div class="home">
-    <div class="home__title-container">
-      <h1 class="home__title">Select your category</h1>
-    </div>
-    <section class="home__categories-container">
-      @for(category of categories(); track category) {
-        <a class="home__category" [routerLink]="['category', category.name]">
-          <rj-category-card [category]="category"></rj-category-card>
-        </a>
-      }
-    </section>
-    <div class="home__make-us-laugh">
-      <button [routerLink]="['make-us-laugh']" mat-fab extended color="primary">Got a Joke? 🤭</button>
-    </div>
+<div class="home">
+  <div class="home__title-container">
+    <h1 class="home__title">Select your category</h1>
   </div>
-</rj-layout>
+  <section class="home__categories-container">
+    @for(category of categories(); track category) {
+      <a class="home__category" [routerLink]="['category', category.name]">
+        <rj-category-card [category]="category"></rj-category-card>
+      </a>
+    }
+  </section>
+  <div class="home__make-us-laugh">
+    <button [routerLink]="['make-us-laugh']" mat-fab extended color="primary">Got a Joke? 🤭</button>
+  </div>
+</div>

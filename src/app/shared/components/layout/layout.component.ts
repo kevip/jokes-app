@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ViewChild, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild, inject, signal } from '@angular/core';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
@@ -25,7 +25,7 @@ export class LayoutComponent {
 
   mobileQuery: MediaQueryList;
 
-  navList = NAV_MENU_ITEMS;
+  navList = signal(NAV_MENU_ITEMS);
 
   @ViewChild('sidenav') sidenav!: MatSidenav;
 

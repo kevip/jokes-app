@@ -4,7 +4,7 @@
       fixedTopGap="56" fullscreen>
       <div class="list-wrapper">
         <mat-nav-list>
-          @for (nav of navList; track nav) {
+          @for (nav of navList(); track nav) {
           <a mat-list-item [routerLink]="[nav.path]">{{nav.name}}</a>
           <mat-divider></mat-divider>
           }

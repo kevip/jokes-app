@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -25,5 +25,5 @@ import { NAV_MENU_ITEMS } from '../../../core/config/nav-menu-items';
 export class HeaderComponent {
   public sideNavService = inject(SideNavService);
 
-  public menuItems = NAV_MENU_ITEMS;
+  public menuItems = signal(NAV_MENU_ITEMS);
 }
