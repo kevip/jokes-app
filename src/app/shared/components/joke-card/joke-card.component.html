@@ -2,6 +2,9 @@
   <mat-card-content>
     <div class="joke-card__container">
       <div class="joke-card__top-right">
+        <mat-chip-set aria-label="Score" class="joke-card__score">
+          <mat-chip>SCORE: {{joke.score}}</mat-chip>
+        </mat-chip-set>
         <button mat-icon-button aria-label="Like" (click)="togglePreferred(storageKeys.LIKED_JOKES)">
           <mat-icon>{{ joke.liked ? 'star' : 'star_border'}}</mat-icon>
         </button>

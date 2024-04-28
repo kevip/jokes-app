@@ -1,6 +1,13 @@
 .joke-card {
   height: 170px;
   padding: 0.1em 0.6em;
+  position: relative;
+  &__score {
+    position: absolute;
+    top: 0.2em;
+    left: 0.2em;
+    transform: scale(0.75);
+  }
   &__top-right {
     text-align: right;
     margin-top: -1em;

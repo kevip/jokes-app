@@ -9,6 +9,7 @@ export class JokeModel {
   type: string;
   liked?: boolean;
   favorite?: boolean;
+  score?: number;
 
   constructor(response: IJoke) {
     this.id = response.id

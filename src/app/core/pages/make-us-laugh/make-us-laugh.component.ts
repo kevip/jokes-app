@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
 import { JokeModel } from '../../http/jokes.model';
-import { EStorageKeys } from '../../enums/storage-keys.enum';
 import { MakeUsLaughPresenter } from './make-us-laugh.presenter';
 import { JokesService } from '../../services/jokes.service';
 
